@@ -33,3 +33,12 @@ Possible solutions that din't work:
 
 Here is how it looks:
 ![Demo gif](https://github.com/chirag04/tooltip/blob/master/screenshot.png)
+
+
+#Credits
+
+This was only possible because of help from
+ 
+ [@brentvatne](https://github.com/brentvatne)
+ [@ide](https://github.com/ide)
+ [@robertjpayne](https://github.com/robertjpayne)
