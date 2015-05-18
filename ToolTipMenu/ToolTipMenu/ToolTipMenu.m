@@ -1,5 +1,6 @@
 #import "ToolTipMenu.h"
-#import "UIView+ToolTipMenu.h"
+
+#import "RCTToolTipText.h"
 #import "RCTSparseArray.h"
 #import "RCTUIManager.h"
 
@@ -14,7 +15,7 @@ RCT_EXPORT_METHOD(show:(NSNumber *)reactTag
 {
     [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, RCTSparseArray *viewRegistry) {
         
-        UIView *view = viewRegistry[reactTag];
+        RCTToolTipText *view = viewRegistry[reactTag];
         if (!view) {
             RCTLogError(@"Cannot find view with tag #%@", reactTag);
             return;
@@ -28,7 +29,7 @@ RCT_EXPORT_METHOD(show:(NSNumber *)reactTag
                                   initWithTitle:buttonText
                                   action:NSSelectorFromString(sel)]];
         }
-        
+        [view becomeFirstResponder];
         UIMenuController *menuCont = [UIMenuController sharedMenuController];
         [menuCont setTargetRect:view.frame inView:view.superview];
         menuCont.arrowDirection = UIMenuControllerArrowDown;

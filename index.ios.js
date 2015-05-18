@@ -9,16 +9,22 @@ var {
   AppRegistry,
   StyleSheet,
   Text,
-  TextInput,
+  TouchableHighlight,
   PixelRatio,
   View,
 } = React;
 
 var ToolTipMenu = require('NativeModules').ToolTipMenu;
+var ToolTipText = require('./ToolTipText');
 
 var tooltip = React.createClass({
+  getInitialState: function() {
+    return {
+      input: 'chirag',
+    }
+  },
   handleChange: function(event) {
-    console.log(event.nativeEvent.text);
+    this.setState({input: event.nativeEvent.text});
   },
   handleFocus: function(change) {
     ToolTipMenu.show(this.refs.input.getNodeHandle(), ['x', 'z']);
@@ -37,12 +43,13 @@ var tooltip = React.createClass({
           Cmd+D or shake for dev menu
         </Text>
         <View style={styles.textinputContainer}>
-          <TextInput
-            ref={'input'}
+          <ToolTipText
+            suppressHighlighting={true}
             onChange={this.handleChange}
-            onFocus={this.handleFocus}
+            onPress={this.handleFocus}
+            ref={'input'}
             style={styles.textinput}
-          />
+          >{this.state.input}</ToolTipText>
         </View>
       </View>
     );
@@ -72,7 +79,6 @@ var styles = StyleSheet.create({
     alignItems: 'center',
   },
   textinput: {
-    height: 16,
     width: 60,
     marginVertical: 2,
     marginHorizontal: 2,
@@ -81,6 +87,7 @@ var styles = StyleSheet.create({
     borderColor: '#c7c7cc',
     padding: 2,
     fontSize: 14,
+    backgroundColor: 'white',
   },
 });
 

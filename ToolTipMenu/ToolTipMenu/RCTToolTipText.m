@@ -1,10 +1,35 @@
-#import "UIView+ToolTipMenu.h"
+//
+//  RCTToolTipText.m
+//  ToolTipMenu
+//
+//  Created by Chirag Jain on 5/15/15.
+//  Copyright (c) 2015 Chirag Jain. All rights reserved.
+//
 
-@implementation RCTTextField (ToolTipMenu)
+#import "RCTToolTipText.h"
+#import "RCTEventDispatcher.h"
+#import "UIView+React.h"
+
+@implementation RCTToolTipText
+
+- (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher
+{
+    if ((self = [super initWithFrame:CGRectZero])) {
+        self._eventDispatcher = eventDispatcher;
+    }
+    
+    return self;
+}
+
+- (BOOL) canBecomeFirstResponder
+{
+    return YES;
+}
 
 - (void)tappedMenuItem:(NSString *)text {
-    self.text = text;
-    [self sendActionsForControlEvents:UIControlEventEditingChanged];
+    [self._eventDispatcher sendTextEventWithType:RCTTextEventTypeChange
+                                        reactTag:self.reactTag
+                                            text:text];
 }
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
@@ -33,5 +58,5 @@
     }
 }
 
-@end
 
+@end
