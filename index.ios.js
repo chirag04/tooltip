@@ -27,21 +27,11 @@ var tooltip = React.createClass({
     this.setState({input: event.nativeEvent.text});
   },
   handleFocus: function(change) {
-    ToolTipMenu.show(this.refs.input.getNodeHandle(), ['x', 'z']);
+    ToolTipMenu.show(React.findNodeHandle(this.refs.input), ['x', 'z']);
   },
   render: function() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
         <View style={styles.textinputContainer}>
           <ToolTipText
             suppressHighlighting={true}
@@ -62,16 +52,6 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
   textinputContainer: {
     marginTop: 20,
