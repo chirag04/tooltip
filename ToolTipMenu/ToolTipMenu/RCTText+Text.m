@@ -6,6 +6,9 @@ static void * EventDispatcherKey = &EventDispatcherKey;
 
 @implementation RCTText (Text)
 
+// use AssociatedObject to add _eventDispatcher property on RCTText.
+// need _eventDispatcher for initWithEventDispatcher below.
+
 - (RCTEventDispatcher *)_eventDispatcher {
     return objc_getAssociatedObject(self, EventDispatcherKey);
 }

@@ -6,6 +6,8 @@
 
 @interface RCTText (Text)
 
+// is it ok to have it as a property instead of ivar?
+// doesn't work without having this as property.
 @property (nonatomic, strong) RCTEventDispatcher *_eventDispatcher;
 
 - (void)tappedMenuItem:(NSString *)text;

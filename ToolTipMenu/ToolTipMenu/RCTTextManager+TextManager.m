@@ -4,6 +4,7 @@
 
 @implementation RCTTextManager (TextManager)
 
+//override to use initWithEventDispatcher
 - (UIView *)view
 {
     return [[RCTText alloc] initWithEventDispatcher:self.bridge.eventDispatcher];
