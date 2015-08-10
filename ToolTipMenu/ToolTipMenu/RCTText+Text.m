@@ -1,20 +1,23 @@
-//
-//  RCTToolTipText.m
-//  ToolTipMenu
-//
-//  Created by Chirag Jain on 5/15/15.
-//  Copyright (c) 2015 Chirag Jain. All rights reserved.
-//
-
-#import "RCTToolTipText.h"
-#import "RCTEventDispatcher.h"
 #import "UIView+React.h"
+#import "RCTText+Text.h"
+#import <objc/runtime.h>
 
-@implementation RCTToolTipText
+static void * EventDispatcherKey = &EventDispatcherKey;
 
-- (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher
+@implementation RCTText (Text)
+
+- (RCTEventDispatcher *)_eventDispatcher {
+    return objc_getAssociatedObject(self, EventDispatcherKey);
+}
+
+- (void)set_eventDispatcher:(RCTEventDispatcher *)_eventDispatcher {
+    objc_setAssociatedObject(self, EventDispatcherKey, _eventDispatcher, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+
+- (id)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher
 {
-    if ((self = [super initWithFrame:CGRectZero])) {
+    if ((self = [self initWithFrame:CGRectZero])) {
         self._eventDispatcher = eventDispatcher;
     }
     
@@ -29,7 +32,8 @@
 - (void)tappedMenuItem:(NSString *)text {
     [self._eventDispatcher sendTextEventWithType:RCTTextEventTypeChange
                                         reactTag:self.reactTag
-                                            text:text];
+                                            text:text
+                                      eventCount:0];
 }
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {

@@ -1,6 +1,6 @@
 #import "ToolTipMenu.h"
 
-#import "RCTToolTipText.h"
+#import "RCTText.h"
 #import "RCTSparseArray.h"
 #import "RCTUIManager.h"
 
@@ -10,12 +10,17 @@
 
 RCT_EXPORT_MODULE()
 
+- (dispatch_queue_t)methodQueue
+{
+    return _bridge.uiManager.methodQueue;
+}
+
 RCT_EXPORT_METHOD(show:(NSNumber *)reactTag
                   items: (NSArray *)items)
 {
-    [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, RCTSparseArray *viewRegistry) {
+    [_bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, RCTSparseArray *viewRegistry) {
         
-        RCTToolTipText *view = viewRegistry[reactTag];
+        RCTText *view = viewRegistry[reactTag];
         if (!view) {
             RCTLogError(@"Cannot find view with tag #%@", reactTag);
             return;

@@ -10,8 +10,8 @@
 		4681C0251B05271A004D67D4 /* ToolTipMenu.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4681C0241B05271A004D67D4 /* ToolTipMenu.h */; };
 		4681C0271B05271A004D67D4 /* ToolTipMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4681C0261B05271A004D67D4 /* ToolTipMenu.m */; };
 		4681C02D1B05271A004D67D4 /* libToolTipMenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4681C0211B05271A004D67D4 /* libToolTipMenu.a */; };
-		469F58B71B069FF300C571E8 /* RCTToolTipText.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F58B61B069FF300C571E8 /* RCTToolTipText.m */; };
-		469F58B91B06A00C00C571E8 /* RCTToolTipTextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F58B81B06A00C00C571E8 /* RCTToolTipTextManager.m */; };
+		469F58B71B069FF300C571E8 /* RCTText+Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F58B61B069FF300C571E8 /* RCTText+Text.m */; };
+		469F58B91B06A00C00C571E8 /* RCTTextManager+TextManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F58B81B06A00C00C571E8 /* RCTTextManager+TextManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +43,10 @@
 		4681C0261B05271A004D67D4 /* ToolTipMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolTipMenu.m; sourceTree = "<group>"; };
 		4681C02C1B05271A004D67D4 /* ToolTipMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToolTipMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4681C0321B05271A004D67D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		469F58B31B069F9800C571E8 /* RCTToolTipText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTToolTipText.h; sourceTree = "<group>"; };
-		469F58B61B069FF300C571E8 /* RCTToolTipText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTToolTipText.m; sourceTree = "<group>"; };
-		469F58B81B06A00C00C571E8 /* RCTToolTipTextManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTToolTipTextManager.m; sourceTree = "<group>"; };
-		469F58BA1B06A01D00C571E8 /* RCTToolTipTextManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTToolTipTextManager.h; sourceTree = "<group>"; };
+		469F58B31B069F9800C571E8 /* RCTText+Text.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTText+Text.h"; sourceTree = "<group>"; };
+		469F58B61B069FF300C571E8 /* RCTText+Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTText+Text.m"; sourceTree = "<group>"; };
+		469F58B81B06A00C00C571E8 /* RCTTextManager+TextManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTTextManager+TextManager.m"; sourceTree = "<group>"; };
+		469F58BA1B06A01D00C571E8 /* RCTTextManager+TextManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTTextManager+TextManager.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +91,10 @@
 			children = (
 				4681C0241B05271A004D67D4 /* ToolTipMenu.h */,
 				4681C0261B05271A004D67D4 /* ToolTipMenu.m */,
-				469F58B31B069F9800C571E8 /* RCTToolTipText.h */,
-				469F58B61B069FF300C571E8 /* RCTToolTipText.m */,
-				469F58BA1B06A01D00C571E8 /* RCTToolTipTextManager.h */,
-				469F58B81B06A00C00C571E8 /* RCTToolTipTextManager.m */,
+				469F58B31B069F9800C571E8 /* RCTText+Text.h */,
+				469F58B61B069FF300C571E8 /* RCTText+Text.m */,
+				469F58BA1B06A01D00C571E8 /* RCTTextManager+TextManager.h */,
+				469F58B81B06A00C00C571E8 /* RCTTextManager+TextManager.m */,
 			);
 			path = ToolTipMenu;
 			sourceTree = "<group>";
@@ -204,8 +204,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4681C0271B05271A004D67D4 /* ToolTipMenu.m in Sources */,
-				469F58B91B06A00C00C571E8 /* RCTToolTipTextManager.m in Sources */,
-				469F58B71B069FF300C571E8 /* RCTToolTipText.m in Sources */,
+				469F58B91B06A00C00C571E8 /* RCTTextManager+TextManager.m in Sources */,
+				469F58B71B069FF300C571E8 /* RCTText+Text.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

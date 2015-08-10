@@ -12,10 +12,10 @@ var {
   TouchableHighlight,
   PixelRatio,
   View,
+  NativeModules,
 } = React;
 
-var ToolTipMenu = require('NativeModules').ToolTipMenu;
-var ToolTipText = require('./ToolTipText');
+var ToolTipMenu = NativeModules.ToolTipMenu;
 
 var tooltip = React.createClass({
   getInitialState: function() {
@@ -33,13 +33,14 @@ var tooltip = React.createClass({
     return (
       <View style={styles.container}>
         <View style={styles.textinputContainer}>
-          <ToolTipText
+          <Text
             suppressHighlighting={true}
             onChange={this.handleChange}
             onPress={this.handleFocus}
             ref={'input'}
-            style={styles.textinput}
-          >{this.state.input}</ToolTipText>
+            style={styles.textinput}>
+              {this.state.input}
+          </Text>
         </View>
       </View>
     );
