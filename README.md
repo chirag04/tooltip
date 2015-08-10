@@ -1,5 +1,9 @@
 # tooltip
-example implementation of uimenucontroller for uitextfield with react-native
+example implementation of uimenucontroller for uitextfield with react-native.
+
+Text component is not having onChange so we use category on RCTText to add eventDispatcher on it.
+
+TooltipMenu module will show the uimenucontroller on the text component and call the selector in RCTText which will emit the change event.
 
 #Api
 
@@ -8,7 +12,7 @@ var ToolTipMenu = require('NativeModules').ToolTipMenu;
 
 
 In render:
-<TextInput
+<Text
     ref={'input'}
     onChange={this.handleChange}
     onFocus={this.handleFocus}
